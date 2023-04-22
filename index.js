@@ -66,3 +66,12 @@ function calculatePayroll(array){
     }
     return sum
 }
+const allWagesFor = function () {
+    const eligibleDates = this.timeInEvents.map(function (e) {
+        return e.date
+    })
+    const payable = eligibleDates.reduce(function (csv, d) {
+        return csv + wagesEarnedOnDate.call(this, d)
+    }.bind(this), 0) 
+    return payable
+}
